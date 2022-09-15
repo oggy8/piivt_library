@@ -5,13 +5,7 @@ import { DevConfig } from "./configs";
 import IApplicationResources from "./common/IApplicationResources.interface";
 import * as mysql2 from "mysql2/promise";
 import fileUpload = require("express-fileupload");
-import AddressService from "./components/user/AddressService.service";
-import AdministratorService from "./components/administrator/AdministratorService.service";
-import UserService from "./components/user/UserService.service";
-import CountryService from "./components/country/CountryService.service";
-import AircraftService from "./components/aircraft/AircraftService.service";
-import BagService from "./components/bag/BagService.service";
-import CabinService from "./components/cabin/CabinService.service";
+
 
 async function main() {
   const config: IConfig = DevConfig;
@@ -52,18 +46,18 @@ async function main() {
   const applicationResources: IApplicationResources = {
     databaseConnection: db,
     services: {
-      address: null,
-      administrator: null,
-      aircraft: null,
-      bag: null,
-      cabin: null,
-      country: null,
-      user: null,
+      // address: null,
+      // administrator: null,
+      // aircraft: null,
+      // bag: null,
+      // cabin: null,
+      // country: null,
+      // user: null,
       /* TODO: Implement DB entity services */
     },
   };
 
-  applicationResources.services.address = new AddressService(
+  /*applicationResources.services.address = new AddressService(
     applicationResources
   );
   applicationResources.services.administrator = new AdministratorService(
@@ -77,9 +71,9 @@ async function main() {
   applicationResources.services.country = new CountryService(
     applicationResources
   );
-  applicationResources.services.user = new UserService(applicationResources);
+  applicationResources.services.user = new UserService(applicationResources); */
 
-  const application: express.Application = express();
+  const application: express.Application = express(); 
 
   application.use(cors());
 
@@ -94,7 +88,7 @@ async function main() {
       abortOnLimit: true,
 
       useTempFiles: true,
-      tempFileDir: config.fileUploads.temporaryFileDirecotry,
+      tempFileDir: config.fileUploads.temporaryFileDirectory,
       createParentPath: true,
       safeFileNames: true,
       preserveExtension: true,
