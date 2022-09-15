@@ -1,0 +1,7 @@
+3. backend/dist/
+3. backend/logs/
+3. backend/node_modules/
+3. backend/static/uploads/
+3. backend/src/config.mail.ts
+3. backend/.env
+temp/
